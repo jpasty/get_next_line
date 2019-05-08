@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #ifendf GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
@@ -12,6 +13,8 @@ int		get_next_line(static int, char **);
 
 #endif
 =======
+=======
+>>>>>>> 82c02238f4aed1ea661de68074313a7df5659992
 #ifendf GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
@@ -20,4 +23,7 @@ int		get_next_line(static int, char **);
 int		get_next_line(static int, char **);
 
 #endif
+<<<<<<< HEAD
+>>>>>>> 82c02238f4aed1ea661de68074313a7df5659992
+=======
 >>>>>>> 82c02238f4aed1ea661de68074313a7df5659992

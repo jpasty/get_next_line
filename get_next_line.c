@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "get_next_line.h"
 
 int				ft_next_line(char **line, const int fd, char **hold, int ret)
@@ -33,6 +34,8 @@ int				get_next_line(const int fd, char **line)
 	return (ft_next_line(line, fd, hold, ret))
 }
 =======
+=======
+>>>>>>> 82c02238f4aed1ea661de68074313a7df5659992
 #include "get_next_line.h"
 
 int				get_next_line(const int fd, char **line)
@@ -42,4 +45,7 @@ int				get_next_line(const int fd, char **line)
 	int			ret;
 	
 }
+<<<<<<< HEAD
+>>>>>>> 82c02238f4aed1ea661de68074313a7df5659992
+=======
 >>>>>>> 82c02238f4aed1ea661de68074313a7df5659992
