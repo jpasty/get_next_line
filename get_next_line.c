@@ -6,14 +6,14 @@
 /*   By: jpasty <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 19:24:35 by jpasty            #+#    #+#             */
-/*   Updated: 2019/05/14 14:25:53 by jpasty           ###   ########.fr       */
+/*   Updated: 2019/05/22 15:40:57 by jpasty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include "libft/libft.h"
 
-int				ft_next_line(char **hold, int fd, char **line, int ret)
+int				ft_next_line(char **hold, int fd, char **line)
 {
 	char		*tmp;
 	int			len;
@@ -32,8 +32,6 @@ int				ft_next_line(char **hold, int fd, char **line, int ret)
 	}
 	else if (hold[fd][len] == '\0')
 	{
-		if (ret == BUFF_SIZE)
-			return (get_next_line(fd, line));
 		*line = ft_strdup(hold[fd]);
 		ft_strdel(&hold[fd]);
 	}
@@ -60,7 +58,7 @@ int				get_next_line(const int fd, char **line)
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
-	if (ret == 0 && (hold[fd] == NULL || hold[fd][0] == '\0'))
+	if (ret == 0 && hold[fd] == NULL)
 		return (0);
-	return (ft_next_line(hold, fd, line, ret));
+	return (ft_next_line(hold, fd, line));
 }
