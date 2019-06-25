@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpasty <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 13:32:45 by jpasty            #+#    #+#             */
-/*   Updated: 2019/06/02 13:29:44 by jpasty           ###   ########.fr       */
+/*   Created: 2019/04/14 16:09:34 by jpasty            #+#    #+#             */
+/*   Updated: 2019/04/14 16:23:53 by jpasty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1024
-# define FD_MAX 10240
+size_t			ft_strlcat(char *dst, const char *src, size_t size)
+{
+	char		*d;
+	const char	*s;
+	size_t		n;
+	size_t		dl;
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	d = dst;
+	s = src;
+	n = size;
+	while (n-- && *d)
+		d++;
+	dl = d - dst;
+	n = size - dl;
+	if (n == 0)
+		return (dl + ft_strlen(s));
+	while (*s)
+	{
+		if (n != 1)
+		{
+			*d++ = *s;
+			n--;
+		}
+		s++;
+	}
+	*d = '\0';
+	return (dl + (s - src));
+}

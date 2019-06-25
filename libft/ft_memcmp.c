@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpasty <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 13:32:45 by jpasty            #+#    #+#             */
-/*   Updated: 2019/06/02 13:29:44 by jpasty           ###   ########.fr       */
+/*   Created: 2019/04/08 21:56:10 by jpasty            #+#    #+#             */
+/*   Updated: 2019/04/11 15:25:38 by jpasty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1024
-# define FD_MAX 10240
+int						ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	const unsigned char *c1;
+	const unsigned char *c2;
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	c1 = (const unsigned char *)s1;
+	c2 = (const unsigned char *)s2;
+	while (n--)
+	{
+		if (*c1 != *c2)
+			return (*c1 - *c2);
+		else
+		{
+			c1++;
+			c2++;
+		}
+	}
+	return (0);
+}

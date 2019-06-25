@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpasty <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 13:32:45 by jpasty            #+#    #+#             */
-/*   Updated: 2019/06/02 13:29:44 by jpasty           ###   ########.fr       */
+/*   Created: 2019/04/14 16:24:17 by jpasty            #+#    #+#             */
+/*   Updated: 2019/04/23 18:54:25 by jpasty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1024
-# define FD_MAX 10240
+char			*ft_strnstr(const char *dst, const char *src, size_t len)
+{
+	char		*s1;
+	char		*s2;
+	size_t		nl;
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	s1 = (char *)dst;
+	s2 = (char *)src;
+	nl = ft_strlen(s2);
+	if (*s2 == '\0')
+		return (s1);
+	while (*s1 && len-- >= nl)
+	{
+		if (*s1 == *s2 && (ft_memcmp(s1, s2, nl) == 0))
+			return (s1);
+		s1++;
+	}
+	return (NULL);
+}

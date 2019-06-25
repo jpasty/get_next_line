@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpasty <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 13:32:45 by jpasty            #+#    #+#             */
-/*   Updated: 2019/06/02 13:29:44 by jpasty           ###   ########.fr       */
+/*   Created: 2019/04/08 16:46:42 by jpasty            #+#    #+#             */
+/*   Updated: 2019/04/14 20:35:04 by jpasty           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 1024
-# define FD_MAX 10240
+void					*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char		*res;
+	const unsigned char *str;
+	size_t				i;
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
-# include <stdlib.h>
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	res = (unsigned char *)dst;
+	str = (unsigned char *)src;
+	if (src < dst)
+	{
+		while (len--)
+			res[len] = str[len];
+	}
+	else
+	{
+		while (len--)
+		{
+			res[i] = str[i];
+			i++;
+		}
+	}
+	return (res);
+}
